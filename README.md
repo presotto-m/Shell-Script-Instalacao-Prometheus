@@ -10,15 +10,11 @@ Quaisquer sugestões e contribuições são bem-vindas.
 
 # Como usar isso?
 
-Para que seja possivel e utilização do scrit, basta estar efetuando o download do mesmo e o executar com o comando abaixo.
-
-```bash
-./Prometheus.sh
-```
+Para que seja possivel e utilização do scrit, basta estar seguindo exatamente todo o passao a passo aprenstado.
 
 ## Instalação completa
 
 A instalação completa instalará o seguinte:
 
 * Prometheus
-
+* Nginx
