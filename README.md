@@ -10,7 +10,11 @@ Quaisquer sugestões e contribuições são bem-vindas.
 
 # Como usar isso?
 
-Se você estiver usando isso para instalar componentes individuais ou o aplicativo completo, é melhor iniciar os scripts do repositório clonado. Se você copiar scripts em qualquer outro lugar, o comportamento dos scripts não é garantido. **Observe que esses scripts adicionarão o Prometheus e outros utilitários ao systemd como serviços e habilitarão o por padrão**.
+Para que seja possivel e utilização do scrit, basta estar efetuando o download do mesmo e o executar com o comando abaixo.
+
+```bash
+./Prometheus.sh
+```
 
 ## Instalação completa
 
@@ -18,14 +22,3 @@ A instalação completa instalará o seguinte:
 
 * Prometheus
 
-Os scripts possuem muitos `sudo`s, então antes de iniciar a instalação completa, faça:
-
-```bash
-sudo pwd
-```
-apenas para ter certeza, `sudo` em scripts não irá interrompê-lo. Depois disso, você pode executar o script como:
-
-```bash
-./Prometheus.sh
-```
-Ou execute o script como um usuário `root`.
