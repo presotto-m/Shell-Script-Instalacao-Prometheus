@@ -5,7 +5,7 @@ sudo apt upgrade -y
 sudo mkdir /var/lib/prometheus
 sudo mkdir -p /etc/prometheus/rules /etc/prometheus/rules.d /etc/prometheus/files_sd
 # Após criar os diretórios, agora vamos baixar e instalar o servidor Prometheus
-sudo curl -s https://api.github.com/repos/prometheus/prometheus/releases/latest | grep browser_download_url | grep linux-amd64 | cut -d '"' -f 4 | wget -qi –
+sudo curl -s https://api.github.com/repos/prometheus/prometheus/releases/latest | grep browser_download_url | grep linux-amd64 | cut -d '"' -f 4 | wget -qi -
 # Após finalizar o download, use o seguinte comando para extrair o arquivo;
 sudo tar xvf prometheus*.tar.gz
 # Agora vamos navegar até o diretório e copiar o conteúdo binário do Prometheus para o diretório do sistema /usr/loca/bin/;
@@ -14,23 +14,6 @@ sudo mv prometheus promtool /usr/local/bin/
 # Mova os seguintes arquivos de configuração e diretórios para o diretório /etc/prometheus;
 sudo mv prometheus.yml /etc/prometheus/prometheus.yml
 sudo mv consoles/ console_libraries/ /etc/prometheus/
-
-# Agora vamos efetuar a configuração de autenticação do Prometheus, para gerar uma senha segura, instale o utilitário Python Bcrypt com o seguinte comando;
-sudo apt install python3-bcrypt gnupg2 -y
-# Agora você precisa executar o script Python para gerar a senha, então crie um arquivo Python;
-echo "import getpass
-import bcrypt
-
-password = getpass.getpass("password: ")
-hashed_password = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
-print(hashed_password.decode())" > gen-pass.py
-
-# Por fim, salve e saia do arquivo antes de executar o script para gerar uma senha;
-sudo python3 gen-pass.py
-
-# E adicione o seguinte código ao arquivo (Lembrando de adicionar a senha gerada ao arquivo);
-echo "basic_auth_users:
-       admin: '$2b$12$I1vOrKmkp69aHqC0Cxy/cevXAxwJ8z.jp1VIKFTfN/OFKrCZEbh7q'" > /etc/prometheus/web.yml
 
 # Configurando usuário e grupo do Prometheus, vamos criar um usuário e um grupo Prometheus dedicados com os seguintes comandos;
 sudo groupadd --system prometheus
