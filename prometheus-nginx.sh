@@ -54,7 +54,6 @@ sudo systemctl daemon-reload
 # Agora você pode gerenciar os serviços do Prometheus com os seguintes comandos;
 sudo systemctl start prometheus
 sudo systemctl enable prometheus
-sudo systemctl status prometheus
 
 # Vamos intalar e configurar o Nginx como um proxy reverso, você pode usar e se comunicar com o servidor Prometheus diretamente pela porta, mas não é seguro ou prático para o servidor. Em seguida, você precisa configurar um proxy reverso para o servidor Prometheus para que o servidor não precise se comunicar diretamente com os usuários.
 # Instale o servidor da web Nginx com o seguinte comando;
@@ -70,8 +69,7 @@ server {
     }
 }
 " > /etc/nginx/conf.d/prometheus.conf
-# Salve e feche o arquivo. Em seguida, verifique a configuração do Nginx;
-sudo nginx -t
+
 # Agora reinicie e verifique se os serviços Nginx está sendo executado corretamente usando os seguintes comandos; 
 sudo systemctl restart nginx
-sudo systemctl status nginx
+
