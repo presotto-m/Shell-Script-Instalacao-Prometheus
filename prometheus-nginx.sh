@@ -63,7 +63,7 @@ sudo apt install nginx -y
 echo "
 server {
     listen 80;
-    server_name  (seu-server-ip);
+    server_name  10.0.2.15;
     location / {
         proxy_pass           http://localhost:9090/;
     }
