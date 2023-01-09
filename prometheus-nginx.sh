@@ -9,6 +9,7 @@ sudo curl -s https://api.github.com/repos/prometheus/prometheus/releases/latest 
 # Após finalizar o download, use o seguinte comando para extrair o arquivo;
 sudo tar xvf prometheus*.tar.gz
 # Agora vamos navegar até o diretório e copiar o conteúdo binário do Prometheus para o diretório do sistema /usr/loca/bin/;
+rm -f prometheus-2.41.0.linux-amd64.tar.gz
 cd prometheus*/
 sudo mv prometheus promtool /usr/local/bin/
 # Mova os seguintes arquivos de configuração e diretórios para o diretório /etc/prometheus;
